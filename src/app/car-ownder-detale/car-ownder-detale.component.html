@@ -1,0 +1,65 @@
+<div class="mat-card-cvr">
+	<mat-card class="example-card">
+		<mat-card-content>
+			<form #formGood  [formGroup]="OwnerForm">
+				<mat-grid-list cols="4" rowHeight="3:1">
+  					<mat-grid-tile colspan="1">
+  						<h2 class="inputLable">Фамилия</h2>
+  					</mat-grid-tile>
+  					<mat-grid-tile colspan="3">
+  						<mat-form-field class="example-full-width" appearance="outline">
+							<mat-label>Фамилия</mat-label>
+					    	<input matInput placeholder="Фамилия" 
+						    	formControlName="aLastName"
+						    	 name="aLastName">
+						</mat-form-field>
+					</mat-grid-tile>
+
+  					<mat-grid-tile colspan="1">
+  						<h2 class="inputLable">Имя</h2>
+  					</mat-grid-tile>
+
+  					<mat-grid-tile colspan="3">
+  						<mat-form-field class="example-full-width" appearance="outline">
+							<mat-label>Фамилия</mat-label>
+					    	<input matInput placeholder="Фамилия" 
+						    	formControlName="aLastName"
+						    	 name="aLastName">
+						</mat-form-field>
+					</mat-grid-tile>
+
+  					<mat-grid-tile colspan="1">
+  						<h2 class="inputLable">Отчество</h2>
+  					</mat-grid-tile>
+  					<mat-grid-tile colspan="3">
+  						<mat-form-field class="example-full-width" appearance="outline">
+							<mat-label>Отчество</mat-label>
+					    	<input matInput placeholder="Отчество" 
+						    	formControlName="aMiddleName"
+						    	name="aMiddleName">
+						</mat-form-field>
+					</mat-grid-tile>
+				</mat-grid-list>
+			</form>
+			<h2>Автомобили</h2>
+
+			<div *ngFor="let cmp of dataStore.carsData$ | async; let i = index">
+				<app-car-detale 
+					#groupComp 
+					[data]="cmp"
+					[comp_index]="i"
+					 >
+				</app-car-detale>
+			</div>
+			<div>
+				<button mat-raised-button color="primary" [disabled]="(isOlnyView)" (click)='addNewCar()'>Добавить машину</button>
+			</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button color="primary" [disabled]="(!OwnerForm.valid || !(dataStore.statusComponentsValidate$ | async) || isOlnyView)" (click)="onSubmit()">Сохранить</button>
+			<button mat-raised-button color="primary" [routerLink]="['/']">Назад</button>
+		</mat-card-actions>
+	</mat-card>
+</div>
+
+

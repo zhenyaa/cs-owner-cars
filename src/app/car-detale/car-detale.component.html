@@ -1,0 +1,40 @@
+
+	<div>
+		<form #formGood  [formGroup]="OwnerCarsForm">
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Номер</mat-label>
+		    	<input matInput placeholder="Номер" 
+		    	formControlName="aLicensePlateNumber"
+		    	name="aLicensePlateNumber">
+			</mat-form-field>
+
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Марка</mat-label>
+		    	<input matInput placeholder="Марка" 
+		    	formControlName="aManufacturerName"
+		    	 name="aManufacturerName">
+			</mat-form-field>
+
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Модель</mat-label>
+		    	<input matInput placeholder="Модель" 
+		    	formControlName="aModelName"
+		    	name="aModelName">
+			</mat-form-field>
+
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Год</mat-label>
+		    	<input matInput placeholder="Год" 
+		    	formControlName="aProductionYear"
+		    	name="aProductionYear">
+			</mat-form-field>
+
+			<button mat-icon-button (click)='killeTheWindow()'>
+		        <mat-icon>delete</mat-icon>
+			</button>
+		</form>
+	</div>

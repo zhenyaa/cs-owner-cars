@@ -1,0 +1,42 @@
+<p>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle [routerLink]="['/car-owner']" value="bold"><mat-icon>add_circle</mat-icon>Добавить</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/car-owner', selectedRowIndex, 'view']" [disabled]="selectedRowIndex < 0" value="italic"><mat-icon>visibility</mat-icon>Просмотр</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/car-owner', selectedRowIndex]" [disabled]="selectedRowIndex < 0" value="underline"><mat-icon>edit</mat-icon>Редактировать</mat-button-toggle>
+    <mat-button-toggle [disabled]="selectedRowIndex < 0" value="underline" (click)='funcDeleteOwner()'><mat-icon>delete_forever</mat-icon>Удалить</mat-button-toggle>
+  </mat-button-toggle-group>
+</p>
+
+<mat-table [dataSource]="dataSource | async" class="mat-elevation-z8"  >
+
+<ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+ </ng-container>
+
+ <ng-container matColumnDef="aLastName">
+    <mat-header-cell *matHeaderCellDef> Фамилия</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.aLastName}} </mat-cell>
+ </ng-container>
+
+ <ng-container matColumnDef="aFirstName">
+    <mat-header-cell *matHeaderCellDef> Имя</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.aFirstName}} </mat-cell>
+ </ng-container>
+
+ <ng-container matColumnDef="aMiddleName">
+    <mat-header-cell *matHeaderCellDef> Отчество</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.aMiddleName}} </mat-cell>
+ </ng-container>
+
+  <ng-container matColumnDef="carsQuant">
+    <mat-header-cell *matHeaderCellDef> Количество автомобилей</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.aCars?.length}} </mat-cell>
+ </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"
+  			[ngClass]="{'highlight': selectedRowIndex == row.id}"
+         	(click)="highlight(row)"></mat-row>
+ 
+</mat-table>
