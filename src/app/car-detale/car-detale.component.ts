@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { CarEntity, OwnerEntity } from '../model/car-owner';
 import { ValidatorsService } from '../validators.service'
@@ -12,6 +12,7 @@ export class CarDetaleComponent implements OnInit {
   OwnerCarsForm: FormGroup
   @Input() comp_index: number;
   @Input() data: any;
+  @Output() newItemEvent = new EventEmitter<{status:boolean, index: number}>();
   constructor(public cd: ChangeDetectorRef, private vs: ValidatorsService, private dataStore: DataStoreService) { }
 
 
@@ -43,6 +44,7 @@ export class CarDetaleComponent implements OnInit {
   }
 
   killeTheWindow(){
+    // this.newItemEvent.emit({status:true, index: this.data.cid})
     this.dataStore.deleteCarData({status:true, index: this.data.cid})
   }
 
