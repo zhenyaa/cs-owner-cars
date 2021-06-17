@@ -30,6 +30,12 @@ mat-grid-tile{
    text-align: left;
 }
 
+#parent {
+   flex-direction: row;
+   display: flex;
+   flex-wrap: wrap;
+}
+
 
 // .example-card{
 //     margin: 0 auto;

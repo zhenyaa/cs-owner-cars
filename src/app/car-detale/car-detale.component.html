@@ -1,40 +1,41 @@
 
-	<div>
-		<form #formGood  [formGroup]="OwnerCarsForm">
-
-			<mat-form-field class="example-full-width" appearance="outline">
+	<div class="example-container" [formGroup]="OwnerCarsForm">
+		<!-- <form #formGood  [formGroup]="OwnerCarsForm"> -->
+				<mat-form-field class="example-full-width" appearance="outline">
 				<mat-label>Номер</mat-label>
-		    	<input matInput placeholder="Номер" 
+		    	<input matInput id="aLicensePlateNumberField" placeholder="Номер" 
 		    	formControlName="aLicensePlateNumber"
-		    	name="aLicensePlateNumber">
+		    	name="aLicensePlateNumber"
+		    	[formGroup]="OwnerCarsForm"
+		    	>
 			</mat-form-field>
 
-
+			<!-- <label for="paysAdresse">Pays : </label> -->
 			<mat-form-field class="example-full-width" appearance="outline">
 				<mat-label>Марка</mat-label>
 		    	<input matInput placeholder="Марка" 
 		    	formControlName="aManufacturerName"
-		    	 name="aManufacturerName">
+		    	 name="aManufacturerName"[formGroup]="OwnerCarsForm">
 			</mat-form-field>
 
-
+			<!-- <label for="paysAdresse">Pays : </label> -->
 			<mat-form-field class="example-full-width" appearance="outline">
 				<mat-label>Модель</mat-label>
 		    	<input matInput placeholder="Модель" 
 		    	formControlName="aModelName"
-		    	name="aModelName">
+		    	name="aModelName"[formGroup]="OwnerCarsForm">
 			</mat-form-field>
 
-
+			<!-- <label for="paysAdresse">Pays : </label> -->
 			<mat-form-field class="example-full-width" appearance="outline">
 				<mat-label>Год</mat-label>
 		    	<input matInput placeholder="Год" 
 		    	formControlName="aProductionYear"
-		    	name="aProductionYear">
+		    	name="aProductionYear"[formGroup]="OwnerCarsForm">
 			</mat-form-field>
 
 			<button mat-icon-button (click)='killeTheWindow()'>
 		        <mat-icon>delete</mat-icon>
 			</button>
-		</form>
+		<!-- </form> -->
 	</div>

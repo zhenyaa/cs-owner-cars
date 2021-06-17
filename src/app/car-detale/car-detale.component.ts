@@ -21,7 +21,7 @@ export class CarDetaleComponent implements OnInit {
     this.OwnerCarsForm.updateValueAndValidity({emitEvent: true});  
 
       this.OwnerCarsForm.statusChanges.subscribe(res=>{
-        if(res == 'INVALID'){
+        if(res == 'INVALID' || res == 'PENDING'){
           this.data.status_validete = res;
           this.data.car_data = this.OwnerCarsForm.value
           this.dataStore.addCarsData(this.data)

@@ -50,6 +50,11 @@ export class CarOwnderDetaleComponent implements OnInit {
                 this.router.navigate(['/'])
               });
       }
+      if(this.isOlnyView){
+        Object.keys(this.OwnerForm.controls).forEach(ctrl => {
+          this.OwnerForm.controls[ctrl].disable();
+    });
+      }
   }
 
   addNewCar(){
